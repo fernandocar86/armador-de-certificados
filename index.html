@@ -11,7 +11,7 @@
 <p class="sub">Todo se procesa en tu navegador: ningún archivo se sube a un servidor.</p>
 
 <section><h2>1. Categorías y modelos</h2>
-<p class="vars">Cada modelo (.pptx) puede usar hasta tres variables: <b>xxx</b>, <b>yyy</b> y <b>zzz</b>. Escribí el nombre de la categoría tal como aparece en el Excel (ej: “Exposición oral”) y adjunta en cada caso el certificado modelo en pptx.</p>
+<p class="vars">Cada modelo de certificado (.pptx) puede usar hasta tres variables: <b>xxx</b>, <b>yyy</b> y <b>zzz</b>. Escribí el nombre de la categoría tal como aparece en el Excel (ej: “Exposición oral”, "Poster", "Organizador", "Organizadora", etc.) y adjunta en cada caso el certificado modelo para esa categoría en pptx. No hay límite para la cantidad de categorías. </p>
 <div id="cats"></div>
 <button id="add">＋ Agregar categoría</button>
 
@@ -31,7 +31,7 @@
   <div class="row"><label>Columna que indica la categoría:</label><select id="catcol"></select></div>
   <div id="maps"></div>
   <button class="p" id="go">Generar certificados</button>
-  <p><small>Se genera un certificado por participante y categoría (si una celda trae varias, p. ej. “Exposición oral; Póster”, se genera uno por cada una).</small></p>
+  <p><small>Se genera un certificado por participante según la categoría declarada (si una celda trae varias, p. ej. “Exposición oral; Póster”, se genera uno por cada una).</small></p>
   <div id="log" class="log"></div>
   <div id="dl" class="row hide">
     <button id="dl-pptx">⬇ Descargar PPTX (.zip)</button>
