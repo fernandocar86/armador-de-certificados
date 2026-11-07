@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de certificados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head><body><main>
+<h1>Generador de certificados</h1>
+<p class="sub">Todo se procesa en tu navegador: ningún archivo se sube a un servidor.</p>
+
+<section><h2>1. Categorías y modelos</h2>
+<p class="vars">Cada modelo (.pptx) puede usar hasta tres variables: <b>xxx</b>, <b>yyy</b> y <b>zzz</b>. Escribí el nombre de la categoría tal como aparece en el Excel (ej: “Exposición oral”) y adjunta en cada caso el certificado modelo en pptx.</p>
+<div id="cats"></div>
+<button id="add">＋ Agregar categoría</button>
+
+<p><a href="certificado-modelo.pptx" download="certificado-modelo.pptx"
+   class="boton-descarga">
+   Descargar un certificado modelo
+</a></p>
+</section>
+
+
+
+
+<section><h2>2. Excel de participantes y generación</h2>
+<input type="file" id="xl" accept=".xlsx,.xls,.csv">
+<div id="xlinfo" class="vars"></div>
+<div id="s2" class="hide">
+  <div class="row"><label>Columna que indica la categoría:</label><select id="catcol"></select></div>
+  <div id="maps"></div>
+  <button class="p" id="go">Generar certificados</button>
+  <p><small>Se genera un certificado por participante y categoría (si una celda trae varias, p. ej. “Exposición oral; Póster”, se genera uno por cada una).</small></p>
+  <div id="log" class="log"></div>
+  <div id="dl" class="row hide">
+    <button id="dl-pptx">⬇ Descargar PPTX (.zip)</button>
+    <button id="dl-pdf" class="p">⬇ Descargar PDF (.zip)</button>
+  </div>
+</p>
+
+
+</div>
+
+<p><a href="participantes.xlsx" download="participantes.xlsx"
+   class="boton-descarga">
+   Descargar modelo de planilla Excel para cargar participantes</a></p>
+
+</section>
+
+
+
+<section><h2>3. Convertir certificados PPTX a PDF</h2>
+<p class="vars">Subí una carpeta con certificados .pptx (o varios .pptx / un .zip) y obtené un .zip con los PDF.</p>
+<div class="row">
+  <label class="filebtn">📁 Elegir carpeta<input type="file" id="folder" webkitdirectory multiple hidden></label>
+  <label class="filebtn">📄 Elegir archivos .pptx / .zip<input type="file" id="files" accept=".pptx,.zip" multiple hidden></label>
+</div>
+<div id="convinfo" class="vars"></div>
+<progress id="bar" class="hide" value="0" max="1"></progress>
+<div id="convlog" class="log"></div>
+<button class="p" id="conv" disabled>Convertir a PDF y descargar</button>
+<p><small>Los PDF se dibujan a partir del diseño del .pptx (imágenes, textos, líneas); es una conversión aproximada. Para fidelidad exacta con fuentes especiales, exportá desde PowerPoint.</small></p>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="certificates.js"></script>
+<script src="pptx-to-pdf.js"></script>
+<script src="app.js"></script>
+</main></body></html>
